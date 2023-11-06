@@ -28,4 +28,15 @@ public class Oscillation : MonoBehaviour
         float offset = Mathf.Sin(Time.time * frequency);
         transform.position = initialPosition + Vector3.right * offset;
     }
+
+    private void OnTriggerEnter(Collider other) 
+    {
+        other.transform.SetParent(transform);
+    }
+
+    private void OnTriggerExit(Collider other) 
+    {
+        other.transform.SetParent(null);
+    }
+    
 }
